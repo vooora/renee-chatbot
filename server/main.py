@@ -13,7 +13,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Adjust this to the specific origin(s) you want to allow
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -22,7 +22,6 @@ app.add_middleware(
 DB_FAISS_PATH = 'vectorstores/db_faiss'
 OPENAI_API_KEY = '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'
 
-# Set the OpenAI API key
 openai.api_key = OPENAI_API_KEY
 
 custom_prompt_template = """Use the following pieces of information to answer the user's question. If you don't know the answer to the question then just say that you are unaware of the answer do not try to come up with an answer if you are unsure.
@@ -41,7 +40,7 @@ def set_custom_prompt():
 
 def call_openai_model(prompt):
     response = openai.ChatCompletion.create(
-        model="gpt-4o",  # Adjust the model name as needed
+        model="gpt-4o", 
         messages=[
             {"role": "system", "content": "You are a helpful medical assistant."},
             {"role": "user", "content": prompt}
@@ -57,9 +56,8 @@ def qa_bot():
     embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
     db = FAISS.load_local(DB_FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
     end_time = time.time()
-    print(f"Embeddings and vector store loaded in {end_time - start_time} seconds")
+    print(f"loaded embeddings")
     
-    print("Setting up QA chain...")
     qa_prompt = set_custom_prompt()
 
     print("QA chain set up successfully.")
@@ -73,9 +71,6 @@ def final_result(query, history):
     history.append(query)
     full_query = " ".join(history)
 
-    #context = "Context from vector store"
-
-    #Retrieve context from vector store
     retrieved_documents = db.as_retriever().get_relevant_documents(full_query)
     context = " ".join([doc.page_content for doc in retrieved_documents])
 
@@ -87,7 +82,6 @@ class QueryModel(BaseModel):
     query: str
 
 
-
 @app.post("/chat")
 async def chat(query: QueryModel):
     query_history = []
@@ -95,7 +89,6 @@ async def chat(query: QueryModel):
         print(f"Received query: {query.query}")
         start_time = time.time()
 
-        # Process the query and append to the history
         response = final_result(query.query, query_history)
         query_history.append(response+" This is the chatbot's reply to the latest question")
         end_time = time.time()
