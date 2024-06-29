@@ -1,0 +1,6 @@
+fastapi
+langchain_huggingface
+langchain
+langchain_community
+pydantic
+langchain_core
