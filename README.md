@@ -27,6 +27,16 @@ Install requirements
 ```
 pip install -r requirements.txt
 ```
+### Setting up .env file
+Add your open ai api key to the .env file as given. 
+```
+OPENAI_API_KEY=you_openai_api_key
+```
+Change the model accordingly in the .env file
+```
+MODEL_NAME=your_model_name
+```
+
 ### Running server
 Create vector database
 ```
