@@ -4,7 +4,7 @@
 
 <img width="1434" alt="image" src="https://github.com/srivantv/renee-chatbot/assets/126191857/cf0c91fa-a072-4625-8e93-0cca05a3e46a">
 
-# Follow the instructions in order to use the chatbot
+# Instructions
 
 Ensure you are using python 3.11 in order to run the chatbot
 
