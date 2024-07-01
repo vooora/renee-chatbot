@@ -15,6 +15,8 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 openai.api_key = OPENAI_API_KEY
 
+model_name = os.getenv('MODEL_NAME')
+
 app = FastAPI()
 
 app.add_middleware(
@@ -46,7 +48,7 @@ def set_custom_prompt():
 
 def call_openai_model(prompt):
     response = openai.ChatCompletion.create(
-        model="gpt-4o", 
+        model=model_name, 
         messages=[
             {"role": "system", "content": "You are a helpful medical assistant."},
             {"role": "user", "content": prompt}
