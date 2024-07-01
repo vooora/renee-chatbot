@@ -6,6 +6,8 @@
 
 # Follow the instructions in order to use the chatbot
 
+Ensure you are using python 3.11 in order to run the chatbot
+
 ## Server
 
 ```
