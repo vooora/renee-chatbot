@@ -28,7 +28,6 @@ app.add_middleware(
 )
 
 DB_FAISS_PATH = 'vectorstores/db_faiss'
-OPENAI_API_KEY = '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'
 
 openai.api_key = OPENAI_API_KEY
 
