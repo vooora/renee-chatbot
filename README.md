@@ -1,5 +1,7 @@
 # Renee Medical Chatbot
 
+[Click to see deployed link](https://renee-chatbot-flax.vercel.app)
+
 <img width="1440" alt="image" src="https://github.com/srivantv/renee-chatbot/assets/126191857/37ae6e68-62ef-4f98-9b6d-f6fcc6c62646">
 
 <img width="1434" alt="image" src="https://github.com/srivantv/renee-chatbot/assets/126191857/cf0c91fa-a072-4625-8e93-0cca05a3e46a">
