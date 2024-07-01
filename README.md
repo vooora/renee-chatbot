@@ -28,11 +28,11 @@ Install requirements
 pip install -r requirements.txt
 ```
 ### Running server
-1. Create vector database
+Create vector database
 ```
 python ingest.py
 ```
-2. Run main
+Run main
 ```
 python main.py
 ```
